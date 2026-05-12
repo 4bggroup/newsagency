@@ -1,0 +1,1944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nextra Albany Creek Newsagency – A World in a Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:        #0c1b33;
+  --navy-mid:    #142444;
+  --navy-light:  #1e3460;
+  --gold:        #c8a84b;
+  --gold-light:  #e2c46d;
+  --gold-pale:   #f7eed8;
+  --gold-ultra:  #fdf6e3;
+  --red:         #b5281c;
+  --cream:       #faf6ee;
+  --paper:       #f3ede0;
+  --ink:         #1a1510;
+  --ink-mid:     #3d3428;
+  --ink-light:   #6b5f4e;
+  --rule:        #d9cdb8;
+  --white:       #ffffff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+
+/* ═══════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════ */
+.section-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  font-weight:700;color:var(--gold);margin-bottom:14px;
+}
+.section-eyebrow::before{content:'';width:28px;height:2px;background:var(--gold);}
+.rule-h{width:56px;height:3px;background:var(--gold);margin:20px 0;}
+
+/* ═══════════════════════════════════════
+   TOPBAR
+═══════════════════════════════════════ */
+.topbar{
+  background:var(--navy);
+  padding:10px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:12px;letter-spacing:.5px;color:rgba(255,255,255,.55);
+}
+.topbar-center{
+  position:absolute;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:28px;
+}
+.topbar-center span{display:flex;align-items:center;gap:7px;}
+.tb-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5;}
+.topbar-right{
+  background:var(--gold);color:var(--navy);
+  padding:5px 16px;border-radius:2px;
+  font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+}
+
+/* ═══════════════════════════════════════
+   NAV
+═══════════════════════════════════════ */
+nav{
+  position:sticky;top:0;z-index:200;
+  background:var(--white);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;height:74px;
+  box-shadow:0 2px 24px rgba(12,27,51,.08);
+}
+.logo-mark{display:flex;align-items:center;gap:14px;}
+.logo-n{
+  width:46px;height:46px;background:var(--navy);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:26px;font-weight:900;
+  color:var(--gold);letter-spacing:-1px;flex-shrink:0;
+}
+.logo-text-group{line-height:1.1;}
+.logo-nextra{
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:900;
+  color:var(--navy);letter-spacing:.5px;
+}
+.logo-nextra sup{font-size:10px;color:var(--gold);vertical-align:super;}
+.logo-sub{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-light);margin-top:2px;}
+.nav-menu{display:flex;align-items:center;gap:32px;}
+.nav-menu a{
+  font-size:13px;font-weight:500;letter-spacing:.8px;
+  color:var(--ink-mid);text-decoration:none;
+  text-transform:uppercase;transition:color .2s;
+  position:relative;padding-bottom:2px;
+}
+.nav-menu a::after{
+  content:'';position:absolute;bottom:0;left:0;width:0;height:2px;
+  background:var(--gold);transition:width .3s;
+}
+.nav-menu a:hover{color:var(--navy);}
+.nav-menu a:hover::after{width:100%;}
+.nav-cta{
+  background:var(--navy)!important;color:var(--white)!important;
+  padding:11px 26px!important;border-radius:3px!important;
+  letter-spacing:1.2px!important;font-weight:700!important;
+  transition:background .25s!important;
+}
+.nav-cta::after{display:none!important;}
+.nav-cta:hover{background:var(--navy-light)!important;color:var(--white)!important;}
+
+/* ═══════════════════════════════════════
+   HERO — NEWSPAPER FRONT PAGE DESIGN
+═══════════════════════════════════════ */
+.hero{
+  background:var(--navy);
+  position:relative;overflow:hidden;
+  min-height:92vh;
+  display:grid;grid-template-columns:1fr 520px;
+  align-items:stretch;
+}
+/* halftone pattern */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(200,168,75,.07) 1px,transparent 1px);
+  background-size:22px 22px;
+  pointer-events:none;
+}
+/* gold diagonal slash */
+.hero::after{
+  content:'';position:absolute;
+  top:0;right:519px;width:4px;height:100%;
+  background:linear-gradient(to bottom,var(--gold),rgba(200,168,75,.2));
+  z-index:3;
+}
+
+.hero-left{
+  position:relative;z-index:2;
+  padding:80px 72px 80px 80px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.hero-date-banner{
+  display:flex;align-items:center;gap:16px;margin-bottom:36px;
+}
+.hero-date-banner .date{
+  font-family:'Libre Baskerville',serif;font-size:11px;
+  letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.35);
+}
+.hero-date-banner .edition{
+  background:var(--red);color:var(--white);
+  font-size:10px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:3px 10px;border-radius:2px;
+}
+.hero-kicker{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:15px;color:var(--gold);letter-spacing:1px;margin-bottom:10px;
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(52px,6.5vw,90px);
+  font-weight:900;color:var(--white);line-height:1.0;
+  margin-bottom:28px;
+}
+.hero h1 .accent{color:var(--gold);}
+.hero-rule{
+  display:flex;align-items:center;gap:14px;margin-bottom:28px;
+}
+.hero-rule-line{flex:1;height:1px;background:rgba(255,255,255,.15);}
+.hero-rule-star{color:var(--gold);font-size:14px;}
+.hero-sub{
+  font-family:'Libre Baskerville',serif;
+  font-size:19px;font-style:italic;
+  color:rgba(255,255,255,.65);line-height:1.75;
+  max-width:520px;margin-bottom:44px;
+}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:60px;}
+.btn-gold{
+  background:var(--gold);color:var(--navy);
+  padding:15px 36px;font-weight:700;font-size:12.5px;
+  letter-spacing:1.8px;text-transform:uppercase;text-decoration:none;
+  border-radius:3px;display:inline-block;transition:all .25s;
+  box-shadow:0 6px 28px rgba(200,168,75,.35);
+}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-ghost{
+  border:1.5px solid rgba(255,255,255,.25);color:rgba(255,255,255,.75);
+  padding:15px 36px;font-size:12.5px;letter-spacing:1.8px;
+  text-transform:uppercase;text-decoration:none;
+  border-radius:3px;display:inline-block;transition:all .25s;font-weight:500;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+
+.hero-stats{
+  display:flex;gap:0;border-top:1px solid rgba(255,255,255,.1);
+  padding-top:32px;
+}
+.hstat{
+  flex:1;padding-right:28px;margin-right:28px;
+  border-right:1px solid rgba(255,255,255,.1);
+}
+.hstat:last-child{border-right:none;}
+.hstat-num{
+  font-family:'Playfair Display',serif;font-size:38px;font-weight:900;
+  color:var(--gold);line-height:1;
+}
+.hstat-label{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-top:4px;
+}
+
+/* HERO RIGHT — NEWSPAPER ILLUSTRATION */
+.hero-right{
+  position:relative;z-index:2;
+  background:var(--paper);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+.newspaper-masthead{
+  background:var(--navy-mid);
+  padding:24px 28px;
+  border-bottom:4px solid var(--gold);
+}
+.nm-title{
+  font-family:'Playfair Display',serif;font-size:28px;font-weight:900;
+  color:var(--white);letter-spacing:1px;text-align:center;
+}
+.nm-title sup{font-size:12px;color:var(--gold);}
+.nm-sub{
+  text-align:center;font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:4px;
+}
+.nm-tagline{
+  text-align:center;font-family:'Libre Baskerville',serif;
+  font-style:italic;font-size:12px;color:var(--gold-light);
+  margin-top:8px;
+}
+
+.newspaper-body{padding:24px 28px;flex:1;}
+.np-headline{
+  font-family:'Playfair Display',serif;font-size:22px;font-weight:700;
+  color:var(--ink);line-height:1.2;margin-bottom:12px;
+  border-bottom:2px solid var(--ink);padding-bottom:10px;
+}
+.np-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.np-col p{
+  font-family:'Libre Baskerville',serif;font-size:12.5px;
+  line-height:1.7;color:var(--ink-mid);
+}
+.np-col p + p{margin-top:8px;}
+.np-rule{height:1px;background:var(--rule);margin:16px 0;}
+
+/* Product highlight boxes inside newspaper */
+.np-boxes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;}
+.np-box{
+  background:var(--white);border:1px solid var(--rule);
+  padding:14px;border-radius:2px;text-align:center;
+}
+.np-box .icon-circle{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--navy);display:flex;align-items:center;justify-content:center;
+  margin:0 auto 10px;
+}
+.np-box .icon-circle svg{width:22px;height:22px;}
+.np-box h4{font-family:'Playfair Display',serif;font-size:13.5px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.np-box p{font-size:11px;color:var(--ink-light);line-height:1.4;}
+
+.np-lotto-strip{
+  background:var(--navy);color:var(--white);
+  margin:16px 0 0;padding:14px 16px;border-radius:2px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.np-lotto-strip span{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);}
+.lotto-balls{display:flex;gap:6px;}
+.lball{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--gold);color:var(--navy);
+  font-size:10px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+}
+.lball.red{background:var(--red);color:var(--white);}
+
+/* ═══════════════════════════════════════
+   MARQUEE TICKER
+═══════════════════════════════════════ */
+.ticker{
+  background:var(--gold);padding:12px 0;overflow:hidden;
+  border-top:2px solid var(--gold-light);border-bottom:2px solid rgba(0,0,0,.1);
+}
+.ticker-track{
+  display:flex;white-space:nowrap;
+  animation:ticker 30s linear infinite;
+}
+@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:14px;
+  padding:0 28px;font-size:11.5px;font-weight:700;
+  letter-spacing:2.5px;text-transform:uppercase;color:var(--navy);
+}
+.ticker-sep{font-size:18px;opacity:.3;font-weight:300;}
+
+/* ═══════════════════════════════════════
+   ABOUT — WHO WE ARE
+═══════════════════════════════════════ */
+.about{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:640px;
+}
+.about-visual{
+  background:var(--navy);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  padding:60px 56px;
+}
+/* Geometric pattern background */
+.about-visual::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(200,168,75,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,168,75,.05) 1px, transparent 1px);
+  background-size:40px 40px;
+}
+.about-big-n{
+  position:absolute;right:-30px;bottom:-40px;
+  font-family:'Playfair Display',serif;font-size:320px;font-weight:900;
+  color:rgba(255,255,255,.025);line-height:1;pointer-events:none;
+  user-select:none;
+}
+.about-visual-content{position:relative;z-index:2;}
+.about-tagline{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(32px,3.5vw,48px);font-weight:400;
+  color:var(--white);line-height:1.25;margin-bottom:32px;
+}
+.about-tagline strong{font-style:normal;font-weight:900;color:var(--gold);}
+
+.about-pillars{display:flex;flex-direction:column;gap:20px;margin-top:auto;}
+.pillar{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);border-radius:3px;
+  transition:border-color .3s;
+}
+.pillar:hover{border-color:rgba(200,168,75,.4);}
+.pillar-num{
+  font-family:'Playfair Display',serif;font-size:32px;font-weight:900;
+  color:var(--gold);opacity:.4;line-height:1;flex-shrink:0;width:36px;
+}
+.pillar-body h4{font-size:14px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.pillar-body p{font-size:13px;color:rgba(255,255,255,.5);line-height:1.55;}
+
+.about-content{
+  background:var(--cream);padding:80px 72px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.about-content h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,4vw,52px);font-weight:900;
+  color:var(--navy);line-height:1.1;margin-bottom:8px;
+}
+.about-content h2 em{font-style:italic;color:var(--gold);}
+.about-content .lead{
+  font-family:'Libre Baskerville',serif;font-size:17px;
+  color:var(--ink-mid);line-height:1.8;margin-bottom:20px;font-style:italic;
+}
+.about-content p{
+  font-size:15px;color:var(--ink-light);line-height:1.75;margin-bottom:14px;
+}
+
+.nextra-badge-row{
+  display:flex;align-items:center;gap:16px;margin:28px 0;
+  padding:20px;background:var(--navy);border-radius:4px;
+}
+.nextra-badge-logo{
+  font-family:'Playfair Display',serif;font-size:22px;font-weight:900;
+  color:var(--white);white-space:nowrap;
+}
+.nextra-badge-logo sup{font-size:11px;color:var(--gold);}
+.nextra-badge-divider{width:1px;height:40px;background:rgba(255,255,255,.15);}
+.nextra-badge-text{font-size:12.5px;color:rgba(255,255,255,.55);line-height:1.5;}
+.nextra-badge-text strong{color:var(--gold);}
+
+/* ═══════════════════════════════════════
+   WHAT WE SELL — FULL CATEGORIES
+═══════════════════════════════════════ */
+.categories{padding:100px 80px;background:var(--white);}
+.cat-header{text-align:center;margin-bottom:64px;}
+.cat-header h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,60px);font-weight:900;
+  color:var(--navy);line-height:1.05;
+}
+.cat-header h2 em{font-style:italic;color:var(--gold);}
+.cat-header p{
+  font-family:'Libre Baskerville',serif;font-style:italic;
+  font-size:18px;color:var(--ink-light);margin-top:14px;
+  max-width:580px;margin-inline:auto;line-height:1.7;
+}
+
+/* BIG CATEGORY FEATURE ROWS */
+.cat-feature{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4px;margin-bottom:4px;min-height:280px;
+}
+.cat-feature.flip{direction:rtl;}
+.cat-feature.flip > *{direction:ltr;}
+
+.cat-visual{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.cat-info{
+  padding:52px 56px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+
+/* Individual category colour themes */
+.cat-feature.mags .cat-visual{background:var(--navy);}
+.cat-feature.stat .cat-visual{background:#2d4a1e;}
+.cat-feature.cards .cat-visual{background:#5c1a1a;}
+.cat-feature.gifts .cat-visual{background:#1a3a4a;}
+.cat-feature.lottery .cat-visual{background:#2e1a00;}
+.cat-feature.toys .cat-visual{background:#1a1a4a;}
+
+.cat-visual-inner{position:relative;z-index:2;text-align:center;padding:40px;}
+
+.cat-info h3{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,3vw,40px);font-weight:900;
+  color:var(--navy);line-height:1.1;margin-bottom:14px;
+}
+.cat-info h3 em{font-style:italic;color:var(--gold);}
+.cat-info .cat-desc{
+  font-family:'Libre Baskerville',serif;font-size:16px;
+  font-style:italic;color:var(--ink-light);line-height:1.75;margin-bottom:18px;
+}
+.cat-info .cat-body{font-size:14px;color:var(--ink-light);line-height:1.7;margin-bottom:24px;}
+
+.cat-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+.ctag{
+  background:var(--paper);border:1px solid var(--rule);
+  padding:5px 14px;border-radius:20px;font-size:12px;
+  color:var(--ink-mid);font-weight:500;letter-spacing:.5px;
+}
+
+/* SVG Illustrations */
+/* --- Magazine SVG --- */
+.svg-mag-stack{display:flex;flex-direction:column;gap:6px;align-items:center;}
+.mag-spine{
+  width:140px;height:22px;border-radius:2px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 12px;font-size:8px;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;
+}
+/* --- Stat SVG icon for stationery --- */
+.stat-items{display:flex;gap:16px;justify-content:center;align-items:flex-end;}
+.pencil{
+  display:flex;flex-direction:column;align-items:center;gap:0;
+}
+
+/* ═══════════════════════════════════════
+   NEWSPRINT INFORMATION SECTIONS
+═══════════════════════════════════════ */
+.info-columns{
+  background:var(--paper);
+  padding:80px;
+  border-top:4px solid var(--navy);
+  border-bottom:4px solid var(--navy);
+}
+.info-columns-header{
+  display:flex;align-items:baseline;justify-content:space-between;
+  margin-bottom:40px;padding-bottom:20px;
+  border-bottom:2px solid var(--ink);
+}
+.info-columns-header h2{
+  font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--navy);
+}
+.info-columns-header .edition-tag{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--ink-light);font-family:'Libre Baskerville',serif;font-style:italic;
+}
+.info-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+.info-col{border-right:1px solid var(--rule);padding-right:40px;}
+.info-col:last-child{border-right:none;padding-right:0;}
+.info-col h3{
+  font-family:'Playfair Display',serif;font-size:20px;font-weight:700;
+  color:var(--navy);margin-bottom:12px;padding-bottom:10px;
+  border-bottom:1px solid var(--rule);
+}
+.info-col p{
+  font-family:'Libre Baskerville',serif;font-size:14px;
+  color:var(--ink-mid);line-height:1.8;margin-bottom:10px;
+}
+.info-col ul{list-style:none;margin-top:10px;}
+.info-col ul li{
+  font-size:13.5px;color:var(--ink-mid);padding:6px 0;
+  border-bottom:1px dotted var(--rule);
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:'Libre Baskerville',serif;
+}
+.info-col ul li .time{
+  font-weight:700;color:var(--navy);font-size:13px;
+}
+.info-col .highlight-box{
+  background:var(--navy);color:var(--white);
+  padding:16px;border-radius:3px;margin-top:14px;
+}
+.info-col .highlight-box h4{
+  font-family:'Playfair Display',serif;font-size:16px;
+  color:var(--gold);margin-bottom:6px;
+}
+.info-col .highlight-box p{
+  font-family:'DM Sans',sans-serif;
+  font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin:0;
+}
+
+/* ═══════════════════════════════════════
+   LOTTERY — BIG FEATURE
+═══════════════════════════════════════ */
+.lottery-section{
+  background:var(--navy);
+  position:relative;overflow:hidden;
+  padding:100px 80px;
+}
+.lottery-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 70% 50%,rgba(200,168,75,.1) 0%,transparent 65%);
+}
+/* Number circles decorative */
+.lottery-section::after{
+  content:'7  14  22  36  40';
+  position:absolute;top:50%;right:5%;
+  transform:translateY(-50%);
+  font-family:'Playfair Display',serif;font-size:100px;font-weight:900;
+  color:rgba(200,168,75,.05);letter-spacing:10px;line-height:1;
+  pointer-events:none;
+}
+.lottery-inner{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.lottery-left h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,4.5vw,60px);font-weight:900;
+  color:var(--white);line-height:1.05;margin-bottom:18px;
+}
+.lottery-left h2 em{font-style:italic;color:var(--gold);}
+.lottery-left p{
+  font-family:'Libre Baskerville',serif;font-size:17px;
+  color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:32px;
+}
+
+.lottery-games-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.lgame{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(200,168,75,.2);
+  border-radius:4px;padding:18px 16px;
+  transition:all .3s;cursor:default;
+}
+.lgame:hover{
+  background:rgba(200,168,75,.08);
+  border-color:rgba(200,168,75,.5);
+  transform:translateY(-2px);
+}
+.lgame-name{
+  font-family:'Playfair Display',serif;font-size:15px;font-weight:700;
+  color:var(--white);margin-bottom:4px;
+}
+.lgame-desc{font-size:12px;color:rgba(255,255,255,.4);}
+.lgame-jackpot{
+  font-size:11px;font-weight:700;color:var(--gold);
+  letter-spacing:1px;text-transform:uppercase;margin-top:6px;
+}
+
+.lottery-right{position:relative;}
+/* Big decorative lottery ball */
+.big-lotto-display{
+  display:flex;flex-direction:column;align-items:center;gap:24px;
+}
+.lotto-machine-art{
+  width:280px;height:280px;border-radius:50%;
+  border:4px solid rgba(200,168,75,.3);
+  background:radial-gradient(circle at 35% 35%,rgba(200,168,75,.15),transparent 60%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;margin:0 auto;
+}
+.lotto-machine-art::before{
+  content:'';position:absolute;inset:20px;
+  border-radius:50%;border:2px dashed rgba(200,168,75,.2);
+  animation:spin 20s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.lotto-center-text{text-align:center;}
+.lotto-center-text .big-num{
+  font-family:'Playfair Display',serif;font-size:80px;font-weight:900;
+  color:var(--gold);line-height:1;
+}
+.lotto-center-text p{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);}
+.lotto-balls-row{display:flex;gap:10px;justify-content:center;}
+.lball2{
+  width:48px;height:48px;border-radius:50%;
+  background:var(--gold);color:var(--navy);
+  font-family:'Playfair Display',serif;font-size:18px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(200,168,75,.4);
+}
+.lball2.r{background:var(--red);color:var(--white);box-shadow:0 4px 16px rgba(181,40,28,.4);}
+.lotto-auth-badge{
+  background:rgba(255,255,255,.06);border:1px solid rgba(200,168,75,.3);
+  padding:12px 24px;border-radius:40px;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);font-weight:700;
+}
+
+/* ═══════════════════════════════════════
+   OCCASIONS / GIFTING
+═══════════════════════════════════════ */
+.occasions{padding:100px 80px;background:var(--cream);}
+.occasions-header{text-align:center;margin-bottom:60px;}
+.occasions-header h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,58px);font-weight:900;
+  color:var(--navy);line-height:1.1;
+}
+.occasions-header h2 em{font-style:italic;color:var(--gold);}
+.occasions-header p{
+  font-family:'Libre Baskerville',serif;font-style:italic;
+  font-size:18px;color:var(--ink-light);margin-top:14px;line-height:1.7;
+}
+
+.occ-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:40px;}
+.occ-card{
+  background:var(--white);border-radius:4px;overflow:hidden;
+  border:1.5px solid var(--rule);transition:all .3s;
+}
+.occ-card:hover{
+  border-color:var(--gold);
+  transform:translateY(-5px);
+  box-shadow:0 16px 44px rgba(12,27,51,.1);
+}
+.occ-visual{
+  height:160px;display:flex;align-items:center;
+  justify-content:center;position:relative;overflow:hidden;
+}
+.occ-card:nth-child(1) .occ-visual{background:linear-gradient(135deg,#fce4ec,#f8bbd9);}
+.occ-card:nth-child(2) .occ-visual{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);}
+.occ-card:nth-child(3) .occ-visual{background:linear-gradient(135deg,#fff3e0,#ffe0b2);}
+.occ-card:nth-child(4) .occ-visual{background:linear-gradient(135deg,#e3f2fd,#bbdefb);}
+.occ-card:nth-child(5) .occ-visual{background:linear-gradient(135deg,#f3e5f5,#e1bee7);}
+.occ-card:nth-child(6) .occ-visual{background:linear-gradient(135deg,#e8eaf6,#c5cae9);}
+.occ-card:nth-child(7) .occ-visual{background:linear-gradient(135deg,#fbe9e7,#ffccbc);}
+.occ-card:nth-child(8) .occ-visual{background:linear-gradient(135deg,#f9fbe7,#f0f4c3);}
+
+.occ-icon-big{font-size:64px;line-height:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,.1));}
+.occ-body{padding:20px 18px;}
+.occ-body h3{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+.occ-body p{font-size:13px;color:var(--ink-light);line-height:1.5;}
+
+.occ-extra-strip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;border:2px solid var(--navy);border-radius:4px;overflow:hidden;
+}
+.occ-extra{
+  padding:20px 22px;background:var(--navy);color:var(--white);
+  border-right:1px solid rgba(255,255,255,.1);text-align:center;
+  transition:background .25s;
+}
+.occ-extra:last-child{border-right:none;}
+.occ-extra:hover{background:var(--navy-light);}
+.occ-extra .icon{font-size:28px;margin-bottom:8px;}
+.occ-extra h4{font-family:'Playfair Display',serif;font-size:14px;color:var(--gold);margin-bottom:4px;}
+.occ-extra p{font-size:12px;color:rgba(255,255,255,.45);}
+
+/* ═══════════════════════════════════════
+   WHY NEXTRA — FEATURE STRIPS
+═══════════════════════════════════════ */
+.why-nextra{
+  background:var(--white);
+  padding:100px 80px;
+  border-top:4px solid var(--navy);
+}
+.why-header{margin-bottom:60px;}
+.why-header h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,4.5vw,56px);font-weight:900;
+  color:var(--navy);line-height:1.1;
+}
+.why-header h2 em{font-style:italic;color:var(--gold);}
+.why-header p{
+  font-family:'Libre Baskerville',serif;font-size:16px;
+  color:var(--ink-light);line-height:1.75;margin-top:14px;max-width:600px;
+}
+
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);}
+.why-card{
+  background:var(--white);padding:44px 38px;
+  transition:background .3s;
+}
+.why-card:hover{background:var(--cream);}
+.why-num{
+  font-family:'Playfair Display',serif;font-size:60px;font-weight:900;
+  color:var(--gold);opacity:.25;line-height:1;margin-bottom:-8px;
+}
+.why-icon-box{
+  width:56px;height:56px;background:var(--navy);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;
+}
+.why-icon-box svg{width:26px;height:26px;fill:var(--gold);}
+.why-card h3{
+  font-family:'Playfair Display',serif;font-size:21px;font-weight:700;
+  color:var(--navy);margin-bottom:10px;line-height:1.25;
+}
+.why-card p{font-size:14px;color:var(--ink-light);line-height:1.7;}
+.why-card .why-tag{
+  display:inline-block;margin-top:16px;font-size:11px;font-weight:700;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);
+}
+
+/* ═══════════════════════════════════════
+   NEWSPAPERS & MAGAZINES DEEP SECTION
+═══════════════════════════════════════ */
+.press-section{
+  background:var(--paper);
+  border-top:3px solid var(--ink);
+  border-bottom:3px solid var(--ink);
+  padding:80px;
+}
+.press-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;
+  margin-bottom:48px;padding-bottom:36px;
+  border-bottom:2px solid var(--rule);
+}
+.press-header h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,52px);font-weight:900;
+  color:var(--navy);line-height:1.1;
+}
+.press-header h2 em{font-style:italic;color:var(--gold);}
+.press-header-right{
+  display:flex;align-items:center;
+  font-family:'Libre Baskerville',serif;font-size:15px;
+  font-style:italic;color:var(--ink-light);line-height:1.75;
+}
+
+.press-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.press-card{
+  background:var(--white);border:1px solid var(--rule);border-radius:3px;overflow:hidden;
+  transition:all .3s;
+}
+.press-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(12,27,51,.1);border-color:rgba(12,27,51,.2);}
+.press-cover{
+  height:160px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+/* Magazine covers with colour blocking */
+.press-card:nth-child(1) .press-cover{background:linear-gradient(145deg,#1a1a2e,#16213e);}
+.press-card:nth-child(2) .press-cover{background:linear-gradient(145deg,#2d1b1b,#4a1515);}
+.press-card:nth-child(3) .press-cover{background:linear-gradient(145deg,#0d2137,#163758);}
+.press-card:nth-child(4) .press-cover{background:linear-gradient(145deg,#1a2d1a,#2e4a1e);}
+.press-card:nth-child(5) .press-cover{background:linear-gradient(145deg,#2a1a0d,#4a3010);}
+.press-card:nth-child(6) .press-cover{background:linear-gradient(145deg,#1a0d2a,#301040);}
+.press-card:nth-child(7) .press-cover{background:linear-gradient(145deg,#2a0d0d,#401010);}
+.press-card:nth-child(8) .press-cover{background:linear-gradient(145deg,#0d1a2a,#102040);}
+
+.press-cover-inner{
+  text-align:center;padding:16px;
+  font-family:'Playfair Display',serif;
+}
+.press-cover-inner .mag-title{
+  font-size:18px;font-weight:900;color:var(--white);
+  text-shadow:0 2px 8px rgba(0,0,0,.5);line-height:1.1;
+}
+.press-cover-inner .mag-sub{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-top:4px;
+}
+.press-cover-inner .mag-edition{
+  display:inline-block;margin-top:10px;padding:3px 10px;
+  background:var(--gold);color:var(--navy);
+  font-size:9px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  border-radius:2px;
+}
+.press-meta{padding:14px 16px;}
+.press-meta h4{
+  font-family:'Playfair Display',serif;font-size:15px;font-weight:700;
+  color:var(--navy);margin-bottom:4px;
+}
+.press-meta p{font-size:12px;color:var(--ink-light);}
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials{padding:100px 80px;background:var(--navy);}
+.test-header{text-align:center;margin-bottom:56px;}
+.test-header h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(34px,4vw,52px);font-weight:900;
+  color:var(--white);line-height:1.1;
+}
+.test-header h2 em{font-style:italic;color:var(--gold);}
+.test-header p{
+  font-family:'Libre Baskerville',serif;font-size:16px;font-style:italic;
+  color:rgba(255,255,255,.45);margin-top:12px;
+}
+
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.tcard{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:4px;padding:36px 30px;
+  transition:all .3s;position:relative;
+}
+.tcard:hover{background:rgba(255,255,255,.07);border-color:rgba(200,168,75,.3);}
+.tcard-quote{
+  font-family:'Playfair Display',serif;font-size:72px;
+  color:var(--gold);opacity:.2;position:absolute;top:16px;left:24px;
+  line-height:1;
+}
+.tcard-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px;}
+.tcard-body{
+  font-family:'Libre Baskerville',serif;font-size:15px;font-style:italic;
+  color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:24px;
+  padding-top:16px;
+}
+.tcard-author{display:flex;align-items:center;gap:14px;}
+.tcard-av{
+  width:40px;height:40px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:17px;font-weight:900;
+  color:var(--navy);flex-shrink:0;
+}
+.tcard-name{font-size:14px;font-weight:700;color:var(--white);}
+.tcard-tag{font-size:11.5px;color:rgba(255,255,255,.35);margin-top:2px;}
+
+/* ═══════════════════════════════════════
+   VISIT CTA
+═══════════════════════════════════════ */
+.visit-cta{
+  background:var(--gold);
+  padding:80px;
+  display:flex;align-items:center;justify-content:space-between;gap:40px;
+  position:relative;overflow:hidden;
+}
+.visit-cta::before{
+  content:'';position:absolute;right:-60px;top:-60px;
+  width:320px;height:320px;border-radius:50%;
+  border:60px solid rgba(255,255,255,.1);pointer-events:none;
+}
+.visit-cta::after{
+  content:'';position:absolute;left:40%;bottom:-80px;
+  width:200px;height:200px;border-radius:50%;
+  border:40px solid rgba(255,255,255,.08);pointer-events:none;
+}
+.visit-cta-text{position:relative;z-index:1;}
+.visit-cta-text h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(32px,4vw,52px);font-weight:900;
+  color:var(--navy);line-height:1.1;margin-bottom:14px;
+}
+.visit-cta-text p{
+  font-family:'Libre Baskerville',serif;font-size:17px;
+  font-style:italic;color:rgba(12,27,51,.65);line-height:1.7;
+  max-width:520px;
+}
+.visit-cta-actions{
+  position:relative;z-index:1;flex-shrink:0;
+  display:flex;flex-direction:column;gap:14px;align-items:flex-end;
+}
+.btn-navy{
+  background:var(--navy);color:var(--white);
+  padding:16px 40px;font-weight:700;font-size:13px;
+  letter-spacing:1.8px;text-transform:uppercase;text-decoration:none;
+  border-radius:3px;display:inline-block;transition:all .25s;
+  box-shadow:0 6px 24px rgba(12,27,51,.35);
+  white-space:nowrap;
+}
+.btn-navy:hover{background:var(--navy-light);transform:translateY(-2px);}
+.visit-cta-hours{
+  font-size:13px;color:rgba(12,27,51,.55);
+  text-align:right;letter-spacing:.5px;
+}
+
+/* ═══════════════════════════════════════
+   INFO FOOTER STRIP
+═══════════════════════════════════════ */
+.info-strip{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  background:var(--navy-mid);
+}
+.is-item{
+  padding:44px 48px;display:flex;align-items:flex-start;gap:18px;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.is-item:last-child{border-right:none;}
+.is-icon{
+  width:50px;height:50px;background:rgba(200,168,75,.1);
+  border:1px solid rgba(200,168,75,.25);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.is-icon svg{width:24px;height:24px;fill:var(--gold);}
+.is-text h3{
+  font-family:'Playfair Display',serif;font-size:18px;font-weight:700;
+  color:var(--white);margin-bottom:6px;
+}
+.is-text p{font-size:13.5px;color:rgba(255,255,255,.45);line-height:1.65;}
+.is-text strong{color:var(--gold);}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);}
+.footer-inner{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:48px;padding:72px 80px 48px;
+}
+.footer-brand .fb-logo{
+  font-family:'Playfair Display',serif;font-size:30px;font-weight:900;
+  color:var(--white);
+}
+.footer-brand .fb-logo sup{font-size:13px;color:var(--gold);}
+.footer-brand .fb-tagline{
+  font-family:'Libre Baskerville',serif;font-style:italic;
+  font-size:13px;color:rgba(255,255,255,.35);margin:4px 0 16px;
+}
+.footer-brand .fb-gold-rule{width:40px;height:2px;background:var(--gold);margin-bottom:16px;}
+.footer-brand p{font-size:13.5px;color:rgba(255,255,255,.4);line-height:1.7;}
+
+.footer-col h4{
+  font-size:10px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin-bottom:18px;
+}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:9px;}
+.footer-col ul li a{
+  font-size:13.5px;color:rgba(255,255,255,.4);text-decoration:none;
+  transition:color .2s;
+}
+.footer-col ul li a:hover{color:var(--gold);}
+
+.footer-bottom{
+  padding:22px 80px;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.25);}
+.nextra-stamp{
+  display:flex;align-items:center;gap:10px;
+}
+.nextra-stamp span{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);}
+.nextra-stamp .stamp{
+  background:var(--gold);color:var(--navy);
+  font-family:'Playfair Display',serif;font-size:13px;font-weight:900;
+  padding:4px 10px;border-radius:2px;letter-spacing:1px;
+}
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:.1s;}
+.reveal-d2{transition-delay:.2s;}
+.reveal-d3{transition-delay:.3s;}
+.reveal-d4{transition-delay:.4s;}
+.reveal-d5{transition-delay:.5s;}
+</style>
+</head>
+<body>
+
+<!-- ═══ TOPBAR ═══ -->
+<div class="topbar" style="position:relative;">
+  <span>Albany Creek, QLD 4035</span>
+  <div class="topbar-center">
+    <span>📰 Open 7 Days</span>
+    <div class="tb-dot"></div>
+    <span>Mon–Fri 5:30am–6:30pm</span>
+    <div class="tb-dot"></div>
+    <span>Weekends 6:00am–6:00pm</span>
+  </div>
+  <div class="topbar-right">Find Us</div>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="logo-mark">
+    <div class="logo-n">N</div>
+    <div class="logo-text-group">
+      <div class="logo-nextra">Nextra<sup>™</sup></div>
+      <div class="logo-sub">Albany Creek Newsagency</div>
+    </div>
+  </div>
+  <div class="nav-menu">
+    <a href="#about">About</a>
+    <a href="#categories">Our Range</a>
+    <a href="#lottery">Lottery</a>
+    <a href="#occasions">Occasions</a>
+    <a href="#press">Magazines</a>
+    <a href="#visit" class="nav-cta">Visit Us</a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-date-banner">
+      <span class="date">Albany Creek, Queensland</span>
+      <span class="edition">Premier Newsagency</span>
+    </div>
+    <p class="hero-kicker">Your neighbourhood, your Nextra™</p>
+    <h1>A <span class="accent">World</span><br>in a Shop.</h1>
+    <div class="hero-rule">
+      <div class="hero-rule-line"></div>
+      <span class="hero-rule-star">✦</span>
+      <div class="hero-rule-line"></div>
+    </div>
+    <p class="hero-sub">From the freshest morning papers to the perfect birthday card, lottery tickets to luxury stationery — Nextra Albany Creek has everything your community needs, every single day.</p>
+    <div class="hero-actions">
+      <a href="#categories" class="btn-gold">Explore Our Range</a>
+      <a href="#visit" class="btn-ghost">Hours &amp; Location</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num">2,000<span style="font-size:22px;opacity:.6">+</span></div>
+        <div class="hstat-label">Product Lines</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">7</div>
+        <div class="hstat-label">Days a Week</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">5:30<span style="font-size:16px;opacity:.6">am</span></div>
+        <div class="hstat-label">Early Open</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEWSPAPER ILLUSTRATION -->
+  <div class="hero-right">
+    <div class="newspaper-masthead">
+      <div class="nm-title">Nextra<sup>™</sup> Albany Creek</div>
+      <div class="nm-sub">The Premier Newsagency · Albany Creek, QLD</div>
+      <div class="nm-tagline">"Your World in a Shop" · Est. Albany Creek</div>
+    </div>
+    <div class="newspaper-body">
+      <div class="np-headline">Today's Featured Sections</div>
+      <div class="np-cols">
+        <div class="np-col">
+          <p>Nextra Albany Creek Newsagency is the premier destination for every newspaper, magazine, greeting card and stationery need.</p>
+          <p>Open from early morning, seven days a week — we're here before your day begins and long after it's well underway.</p>
+        </div>
+        <div class="np-col">
+          <p>From your Sunday morning read to an anniversary gift, a back-to-school notebook to a lucky lottery ticket — everything lives under one roof.</p>
+          <p>Proudly part of the Nextra™ national network — Australia's most trusted newsagency brand.</p>
+        </div>
+      </div>
+      <div class="np-rule"></div>
+      <div class="np-boxes">
+        <div class="np-box">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <h4>Magazines</h4>
+          <p>Hundreds of titles, every genre</p>
+        </div>
+        <div class="np-box">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.36C18 2.51 15.49 0 12 0S6 2.51 6 4.64c0 .48.11.92.18 1.36H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-8-4c1.83 0 3 1.17 3 2.64 0 .48-.2.92-.45 1.36H9.45A2.76 2.76 0 019 4.64C9 3.17 10.17 2 12 2z"/></svg>
+          </div>
+          <h4>Giftware</h4>
+          <p>For every person, every occasion</p>
+        </div>
+        <div class="np-box">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+          </div>
+          <h4>Stationery</h4>
+          <p>School, office and creative</p>
+        </div>
+        <div class="np-box">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="var(--gold)"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+          </div>
+          <h4>Lottery</h4>
+          <p>Official authorised agent</p>
+        </div>
+      </div>
+      <div class="np-lotto-strip">
+        <span>🎱 Latest Lotto — Play Today</span>
+        <div class="lotto-balls">
+          <div class="lball">7</div>
+          <div class="lball">14</div>
+          <div class="lball">22</div>
+          <div class="lball">36</div>
+          <div class="lball">40</div>
+          <div class="lball red">3</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">📰 Magazines &amp; Newspapers <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">✏️ Stationery &amp; Art Supplies <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🎁 Giftware &amp; Presents <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">💌 Greeting Cards <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🎱 Lottery &amp; Keno <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🧸 Toys &amp; Games <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🎀 Gift Wrap, Ribbon &amp; Bows <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">📚 Books &amp; Puzzles <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🖊️ Pens &amp; Notebooks <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🗞️ Daily Newspapers <span class="ticker-sep">✦</span></div>
+    <!-- duplicate -->
+    <div class="ticker-item">📰 Magazines &amp; Newspapers <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">✏️ Stationery &amp; Art Supplies <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🎁 Giftware &amp; Presents <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">💌 Greeting Cards <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🎱 Lottery &amp; Keno <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🧸 Toys &amp; Games <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🎀 Gift Wrap, Ribbon &amp; Bows <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">📚 Books &amp; Puzzles <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🖊️ Pens &amp; Notebooks <span class="ticker-sep">✦</span></div>
+    <div class="ticker-item">🗞️ Daily Newspapers <span class="ticker-sep">✦</span></div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="about" id="about">
+  <div class="about-visual">
+    <div class="about-big-n">N</div>
+    <div class="about-visual-content">
+      <div class="section-eyebrow" style="color:rgba(200,168,75,.9);">Est. Albany Creek</div>
+      <p class="about-tagline">
+        More than a newsagency —<br>
+        <strong>a community cornerstone.</strong>
+      </p>
+      <div style="width:48px;height:2px;background:var(--gold);margin-bottom:36px;opacity:.5;"></div>
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div class="pillar-body">
+            <h4>Neighbourhood First</h4>
+            <p>We're not a chain — we're your local shop, staffed by people who know your name and your preferred magazine title.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div class="pillar-body">
+            <h4>Open Early, Every Day</h4>
+            <p>From 5:30am weekdays. Because your morning routine shouldn't wait — we're ready before the sun's fully up.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div class="pillar-body">
+            <h4>Everything Under One Roof</h4>
+            <p>Newspapers to novelty gifts, scratch tickets to school supplies — we've curated 2,000+ products so you don't have to go anywhere else.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about-content">
+    <div class="section-eyebrow">Who We Are</div>
+    <h2>Albany Creek's<br><em>Premier</em> Newsagency</h2>
+    <div class="rule-h"></div>
+    <p class="lead">Nextra Albany Creek is the destination for all your newsagency needs — a true World in a Shop.</p>
+    <p>Walk through our doors and you'll find an extraordinary range built for every kind of customer. The early riser who picks up their paper and a coffee-break mag. The parent hunting for a last-minute birthday card and a ribbon. The student stocking up on stationery. The weekend dreamer who grabs a lottery ticket on the way home.</p>
+    <p>We are proud members of the Nextra™ network — Australia's most recognised newsagency brand — bringing you the buying power of a national group with the warmth of a locally-owned shop.</p>
+    <div class="nextra-badge-row">
+      <div class="nextra-badge-logo">Nextra<sup>™</sup></div>
+      <div class="nextra-badge-divider"></div>
+      <div class="nextra-badge-text">Proudly part of the <strong>Nextra™ national network</strong> — Australia's trusted newsagency brand serving communities across the country.</div>
+    </div>
+    <a href="#categories" class="btn-gold" style="align-self:flex-start;">Explore Our Full Range →</a>
+  </div>
+</section>
+
+<!-- ═══ CATEGORIES — DETAILED PRODUCT SECTIONS ═══ -->
+<section class="categories" id="categories">
+  <div class="cat-header reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Everything We Offer</div>
+    <h2>Your Complete<br><em>Neighbourhood Store</em></h2>
+    <p>From the morning paper to the perfect anniversary gift — take a little Nextra™ time to discover what extra you can find.</p>
+  </div>
+
+  <!-- MAGAZINES -->
+  <div class="cat-feature mags reveal">
+    <div class="cat-visual">
+      <div class="cat-visual-inner">
+        <!-- Magazine Stack SVG Illustration -->
+        <svg width="300" height="240" viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
+          <!-- Magazine 1 (back) -->
+          <rect x="40" y="50" width="110" height="150" rx="4" fill="#1e3a5a" transform="rotate(-8 95 125)"/>
+          <rect x="43" y="54" width="104" height="143" rx="3" fill="#1a3252" transform="rotate(-8 95 125)"/>
+          <text x="65" y="120" fill="#c8a84b" font-family="Georgia,serif" font-size="14" font-weight="bold" transform="rotate(-8 95 125)">TRAVEL</text>
+          <text x="65" y="138" fill="rgba(255,255,255,.5)" font-family="Georgia,serif" font-size="8" transform="rotate(-8 95 125)">WORLD EDITION</text>
+          <rect x="43" y="190" width="104" height="7" rx="2" fill="#c8a84b" transform="rotate(-8 95 125)" opacity="0.8"/>
+          <!-- Magazine 2 (mid) -->
+          <rect x="80" y="40" width="115" height="158" rx="4" fill="#4a1515" transform="rotate(3 137 119)"/>
+          <rect x="83" y="43" width="109" height="152" rx="3" fill="#3d1212" transform="rotate(3 137 119)"/>
+          <text x="97" y="110" fill="#e8c46d" font-family="Georgia,serif" font-size="13" font-weight="bold" transform="rotate(3 137 119)">FOOD</text>
+          <text x="97" y="126" fill="rgba(255,255,255,.5)" font-family="Georgia,serif" font-size="8" transform="rotate(3 137 119)">& LIFESTYLE</text>
+          <rect x="83" y="188" width="109" height="7" rx="2" fill="#c8a84b" transform="rotate(3 137 119)" opacity="0.8"/>
+          <!-- Magazine 3 (front) -->
+          <rect x="115" y="35" width="120" height="165" rx="4" fill="#0d3a2e"/>
+          <rect x="118" y="38" width="114" height="159" rx="3" fill="#0a2e24"/>
+          <text x="130" y="105" fill="#c8a84b" font-family="Georgia,serif" font-size="14" font-weight="bold">HOME</text>
+          <text x="130" y="122" fill="rgba(255,255,255,.5)" font-family="Georgia,serif" font-size="8">& GARDEN</text>
+          <rect x="118" y="188" width="114" height="8" rx="2" fill="#c8a84b" opacity="0.9"/>
+          <text x="140" y="195.5" fill="#0a2e24" font-family="Georgia,serif" font-size="7" font-weight="bold">MONTHLY</text>
+          <!-- Shadow -->
+          <ellipse cx="170" cy="215" rx="100" ry="8" fill="rgba(0,0,0,0.25)"/>
+        </svg>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,.55);font-size:13px;margin-top:16px;">Hundreds of titles — every interest, every taste</p>
+      </div>
+    </div>
+    <div class="cat-info">
+      <div class="section-eyebrow">Our Biggest Category</div>
+      <h3>Magazines &amp;<br><em>Newspapers</em></h3>
+      <p class="cat-desc">Australia's widest selection of local and international titles — from news to niche hobby magazines, weekly tabloids to specialist journals.</p>
+      <p class="cat-body">Whether you read daily, weekly or just on weekends, our magazine and newspaper wall has something waiting for you. We stock national dailies, local Queensland papers, and an enormous range of monthly and quarterly publications. Fashion, finance, fitness, farming, cars, crafts, crosswords, cooking — we have it all.</p>
+      <div class="cat-tags">
+        <span class="ctag">Daily Newspapers</span>
+        <span class="ctag">Weekly Magazines</span>
+        <span class="ctag">Fashion Titles</span>
+        <span class="ctag">Sports & Outdoors</span>
+        <span class="ctag">Cooking & Lifestyle</span>
+        <span class="ctag">Business & Finance</span>
+        <span class="ctag">Health & Fitness</span>
+        <span class="ctag">Crosswords & Puzzles</span>
+      </div>
+      <a href="#press" class="btn-gold" style="align-self:flex-start;">Browse Our Press Range</a>
+    </div>
+  </div>
+
+  <!-- STATIONERY -->
+  <div class="cat-feature stat flip reveal">
+    <div class="cat-visual">
+      <div class="cat-visual-inner">
+        <!-- Stationery SVG Illustration -->
+        <svg width="280" height="220" viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Notebook -->
+          <rect x="30" y="30" width="90" height="120" rx="4" fill="#2a4a1e"/>
+          <rect x="30" y="30" width="14" height="120" rx="2" fill="#1a3010"/>
+          <line x1="44" y1="50" x2="114" y2="50" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+          <line x1="44" y1="65" x2="114" y2="65" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+          <line x1="44" y1="80" x2="114" y2="80" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+          <line x1="44" y1="95" x2="114" y2="95" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+          <line x1="44" y1="110" x2="114" y2="110" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+          <text x="50" y="45" fill="#c8a84b" font-family="Georgia,serif" font-size="9" font-weight="bold">NOTEBOOK</text>
+          <!-- Ruler -->
+          <rect x="130" y="20" width="18" height="140" rx="2" fill="#c8a84b"/>
+          <rect x="133" y="20" width="12" height="140" rx="1" fill="#e2c46d"/>
+          <line x1="133" y1="30" x2="142" y2="30" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="135" y1="40" x2="142" y2="40" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="133" y1="50" x2="142" y2="50" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="135" y1="60" x2="142" y2="60" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="133" y1="70" x2="142" y2="70" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="135" y1="80" x2="142" y2="80" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="133" y1="90" x2="142" y2="90" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="135" y1="100" x2="142" y2="100" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="133" y1="110" x2="142" y2="110" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="135" y1="120" x2="142" y2="120" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="133" y1="130" x2="142" y2="130" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="135" y1="140" x2="142" y2="140" stroke="#0c1b33" stroke-width="1"/>
+          <line x1="133" y1="150" x2="142" y2="150" stroke="#0c1b33" stroke-width="1"/>
+          <!-- Pencils -->
+          <g transform="translate(162, 0)">
+            <rect x="10" y="40" width="12" height="120" rx="2" fill="#e8a020"/>
+            <polygon points="10,160 22,160 16,175" fill="#f4c870"/>
+            <rect x="10" y="40" width="12" height="12" rx="1" fill="#c0877a"/>
+            <rect x="11" y="41" width="10" height="10" rx="1" fill="#d4a09a"/>
+          </g>
+          <g transform="translate(182, 0)">
+            <rect x="10" y="30" width="12" height="130" rx="2" fill="#3a8a3a"/>
+            <polygon points="10,160 22,160 16,178" fill="#5ab45a"/>
+            <rect x="10" y="30" width="12" height="12" rx="1" fill="#c0877a"/>
+            <rect x="11" y="31" width="10" height="10" rx="1" fill="#d4a09a"/>
+          </g>
+          <g transform="translate(202, 0)">
+            <rect x="10" y="50" width="12" height="110" rx="2" fill="#cc2020"/>
+            <polygon points="10,160 22,160 16,172" fill="#e84a4a"/>
+            <rect x="10" y="50" width="12" height="12" rx="1" fill="#c0877a"/>
+          </g>
+          <!-- Pen -->
+          <rect x="240" y="25" width="10" height="145" rx="5" fill="#1a1a3a"/>
+          <rect x="242" y="165" width="6" height="15" rx="3" fill="#888"/>
+          <circle cx="245" cy="178" r="3" fill="#c8a84b"/>
+          <!-- Shadow -->
+          <ellipse cx="140" cy="195" rx="100" ry="7" fill="rgba(0,0,0,0.3)"/>
+        </svg>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,.55);font-size:13px;margin-top:16px;">School, office & creative supplies</p>
+      </div>
+    </div>
+    <div class="cat-info">
+      <div class="section-eyebrow">Write, Create, Organise</div>
+      <h3>Stationery &amp;<br><em>Office Supplies</em></h3>
+      <p class="cat-desc">Everything you need to write, create, plan and organise — from back-to-school essentials to premium stationery for the professional.</p>
+      <p class="cat-body">Our stationery section is one of the most comprehensive in Albany Creek. Students, teachers, artists, architects and office workers all find what they need here. We carry quality pens, pencils and art materials alongside organisers, diaries, sticky notes, envelopes and everything you need to stay on top of life.</p>
+      <div class="cat-tags">
+        <span class="ctag">Pens &amp; Pencils</span>
+        <span class="ctag">Notebooks &amp; Diaries</span>
+        <span class="ctag">School Supplies</span>
+        <span class="ctag">Art &amp; Craft</span>
+        <span class="ctag">Envelopes &amp; Paper</span>
+        <span class="ctag">Organisers &amp; Folders</span>
+        <span class="ctag">Stamps &amp; Ink</span>
+        <span class="ctag">Sticky Notes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GREETING CARDS -->
+  <div class="cat-feature cards reveal">
+    <div class="cat-visual">
+      <div class="cat-visual-inner">
+        <svg width="280" height="220" viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Card 1 (back) -->
+          <rect x="30" y="60" width="140" height="100" rx="6" fill="#4a1515" transform="rotate(-10 100 110)"/>
+          <rect x="34" y="64" width="132" height="92" rx="4" fill="#3d1010" transform="rotate(-10 100 110)"/>
+          <text x="65" y="108" fill="rgba(255,255,255,.4)" font-family="Georgia,serif" font-size="10" transform="rotate(-10 100 110)">Happy Birthday</text>
+          <!-- Card 2 (mid) -->
+          <rect x="55" y="45" width="145" height="105" rx="6" fill="#1a2d4a" transform="rotate(5 127 97)"/>
+          <rect x="59" y="49" width="137" height="97" rx="4" fill="#152340" transform="rotate(5 127 97)"/>
+          <path d="M100 80 L127 105 L154 80 Q154 65 127 70 Q100 65 100 80Z" fill="#c8a84b" opacity=".7" transform="rotate(5 127 97)"/>
+          <text x="95" y="120" fill="rgba(255,255,255,.5)" font-family="Georgia,serif" font-size="9" transform="rotate(5 127 97)">With Love</text>
+          <!-- Card 3 (front) -->
+          <rect x="75" y="40" width="150" height="110" rx="6" fill="#2a1e0d"/>
+          <rect x="79" y="44" width="142" height="102" rx="4" fill="#fdf6e3"/>
+          <path d="M130 65 L155 88 L180 65 Q180 48 155 54 Q130 48 130 65Z" fill="#c8a84b"/>
+          <text x="115" y="110" fill="#1a1510" font-family="Georgia,serif" font-size="10" font-weight="bold">Thank You</text>
+          <rect x="79" y="136" width="142" height="10" rx="3" fill="#c8a84b"/>
+          <!-- ribbon -->
+          <line x1="150" y1="44" x2="150" y2="146" stroke="rgba(200,168,75,.3)" stroke-width="1.5"/>
+          <line x1="79" y1="95" x2="221" y2="95" stroke="rgba(200,168,75,.3)" stroke-width="1.5"/>
+          <!-- Shadow -->
+          <ellipse cx="150" cy="170" rx="90" ry="7" fill="rgba(0,0,0,0.3)"/>
+        </svg>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,.55);font-size:13px;margin-top:16px;">For every occasion, every emotion</p>
+      </div>
+    </div>
+    <div class="cat-info">
+      <div class="section-eyebrow">Say It Perfectly</div>
+      <h3>Greeting Cards<br>&amp; <em>Wrap</em></h3>
+      <p class="cat-desc">An extraordinary range of greeting cards for every occasion — and all the wrapping, ribbons and bows to make your gift truly unforgettable.</p>
+      <p class="cat-body">When words matter most, you need the right card. Our greeting card wall runs the full gamut from birthdays to bereavement, Mother's Day to new baby, retirement to "just thinking of you." We carry both affordable everyday cards and premium boxed collections for truly special moments. Team it with our gift wrapping range — paper, bags, tissue, ribbon and bows in every colour imaginable.</p>
+      <div class="cat-tags">
+        <span class="ctag">Birthday Cards</span>
+        <span class="ctag">Wedding &amp; Anniversary</span>
+        <span class="ctag">Sympathy &amp; Thinking of You</span>
+        <span class="ctag">Christmas Cards</span>
+        <span class="ctag">New Baby</span>
+        <span class="ctag">Gift Wrap &amp; Bags</span>
+        <span class="ctag">Ribbon &amp; Bows</span>
+        <span class="ctag">Tissue Paper</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GIFTWARE & TOYS -->
+  <div class="cat-feature gifts flip reveal">
+    <div class="cat-visual">
+      <div class="cat-visual-inner">
+        <svg width="280" height="220" viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Gift box 1 -->
+          <rect x="40" y="110" width="80" height="70" rx="4" fill="#c8a84b"/>
+          <rect x="40" y="110" width="80" height="70" rx="4" fill="url(#g1)" opacity=".5"/>
+          <rect x="40" y="108" width="80" height="16" rx="3" fill="#b5941a"/>
+          <line x1="80" y1="108" x2="80" y2="180" stroke="#8a6f10" stroke-width="3"/>
+          <path d="M60,108 Q80,90 100,108" stroke="#e2c46d" stroke-width="3" fill="none"/>
+          <path d="M70,108 Q80,82 90,108" stroke="#e2c46d" stroke-width="3" fill="none"/>
+          <!-- Gift box 2 (tall) -->
+          <rect x="140" y="70" width="70" height="110" rx="4" fill="#1a4a3a"/>
+          <rect x="140" y="70" width="70" height="110" rx="4" fill="url(#g2)" opacity=".3"/>
+          <rect x="140" y="68" width="70" height="16" rx="3" fill="#0d3028"/>
+          <line x1="175" y1="68" x2="175" y2="180" stroke="rgba(200,168,75,.4)" stroke-width="3"/>
+          <line x1="140" y1="136" x2="210" y2="136" stroke="rgba(200,168,75,.4)" stroke-width="3"/>
+          <circle cx="175" cy="68" r="8" fill="#c8a84b"/>
+          <!-- Gift box 3 (small) -->
+          <rect x="195" y="130" width="55" height="50" rx="3" fill="#4a1a3a"/>
+          <rect x="195" y="128" width="55" height="12" rx="2" fill="#3a1030"/>
+          <line x1="222" y1="128" x2="222" y2="180" stroke="#c8a84b" stroke-width="2"/>
+          <!-- Stars decorative -->
+          <text x="30" y="100" fill="#c8a84b" font-size="16" opacity=".4">✦</text>
+          <text x="240" y="80" fill="#c8a84b" font-size="12" opacity=".4">✦</text>
+          <text x="110" y="75" fill="#c8a84b" font-size="10" opacity=".3">✦</text>
+          <!-- Shadow -->
+          <ellipse cx="145" cy="192" rx="110" ry="8" fill="rgba(0,0,0,0.3)"/>
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+            <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="white" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="white" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,.55);font-size:13px;margin-top:16px;">Gifts for every budget, every taste</p>
+      </div>
+    </div>
+    <div class="cat-info">
+      <div class="section-eyebrow">Gifts &amp; Surprises</div>
+      <h3>Giftware, Toys<br>&amp; <em>Novelties</em></h3>
+      <p class="cat-desc">Thoughtfully selected gifts and toys that bring genuine delight — from charming novelties to quality keepsakes for all ages.</p>
+      <p class="cat-body">Our gift and toy range goes far beyond the expected. You'll find quality giftware for adults — candles, ceramics, home accessories and lifestyle products — alongside a fun selection of toys, games and activity sets for children of all ages. Whether you need a quick birthday gift or something extra special, our team has done the curation for you.</p>
+      <div class="cat-tags">
+        <span class="ctag">Giftware &amp; Homewares</span>
+        <span class="ctag">Candles &amp; Diffusers</span>
+        <span class="ctag">Toys &amp; Board Games</span>
+        <span class="ctag">Puzzles &amp; Activities</span>
+        <span class="ctag">Novelty Gifts</span>
+        <span class="ctag">Baby &amp; Kids Gifts</span>
+        <span class="ctag">Gift Sets</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSPRINT INFO SECTION ═══ -->
+<div class="info-columns" id="visit">
+  <div class="info-columns-header">
+    <h2>Everything You Need to Know</h2>
+    <span class="edition-tag">Albany Creek, QLD · Open 7 Days</span>
+  </div>
+  <div class="info-3col">
+    <div class="info-col">
+      <h3>Opening Hours</h3>
+      <p>We're open early every single day of the year — because your morning routine deserves a reliable newsagency.</p>
+      <ul>
+        <li>Monday <span class="time">5:30am – 6:30pm</span></li>
+        <li>Tuesday <span class="time">5:30am – 6:30pm</span></li>
+        <li>Wednesday <span class="time">5:30am – 6:30pm</span></li>
+        <li>Thursday <span class="time">5:30am – 6:30pm</span></li>
+        <li>Friday <span class="time">5:30am – 6:30pm</span></li>
+        <li>Saturday <span class="time">6:00am – 6:00pm</span></li>
+        <li>Sunday <span class="time">6:00am – 6:00pm</span></li>
+      </ul>
+    </div>
+    <div class="info-col">
+      <h3>Find Us</h3>
+      <p>We're conveniently located in Albany Creek with easy access and free parking right outside.</p>
+      <div class="highlight-box">
+        <h4>📍 Nextra Albany Creek</h4>
+        <p>Albany Creek Shopping Centre<br>Albany Creek, Queensland 4035<br><br>Free customer parking available.<br>Easy access from Youngs Crossing Rd.</p>
+      </div>
+      <p style="margin-top:14px;font-size:13px;color:var(--ink-light);">Located within the Albany Creek shopping precinct — easy to find, easy to park, and always worth the visit.</p>
+    </div>
+    <div class="info-col">
+      <h3>Our Services</h3>
+      <p>Beyond products, we offer a range of community services that make Nextra Albany Creek a true one-stop neighbourhood destination.</p>
+      <ul>
+        <li>Newspaper home delivery <span class="time">✓</span></li>
+        <li>Magazine subscriptions <span class="time">✓</span></li>
+        <li>Lottery &amp; Keno tickets <span class="time">✓</span></li>
+        <li>Scratch ticket lottery <span class="time">✓</span></li>
+        <li>Bill payment services <span class="time">✓</span></li>
+        <li>Phone top-up / recharge <span class="time">✓</span></li>
+        <li>Gift wrapping in-store <span class="time">✓</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ LOTTERY ═══ -->
+<section class="lottery-section" id="lottery">
+  <div class="lottery-inner">
+    <div class="lottery-left">
+      <div class="section-eyebrow" style="color:rgba(200,168,75,.9);">Official Authorised Agent</div>
+      <h2>Play Your<br><em>Lucky</em> Numbers<br>Today</h2>
+      <p>Nextra Albany Creek is your official, authorised local lottery retailer. Every major game, every draw — from the big jackpots to daily Keno and instant scratch wins.</p>
+      <div class="lottery-games-grid">
+        <div class="lgame">
+          <div class="lgame-name">Oz Lotto</div>
+          <div class="lgame-desc">Australia's biggest weekly jackpots</div>
+          <div class="lgame-jackpot">Draw: Every Tuesday</div>
+        </div>
+        <div class="lgame">
+          <div class="lgame-name">Powerball</div>
+          <div class="lgame-desc">Thursday night's must-play game</div>
+          <div class="lgame-jackpot">Draw: Every Thursday</div>
+        </div>
+        <div class="lgame">
+          <div class="lgame-name">Saturday Lotto</div>
+          <div class="lgame-desc">Weekend's favourite game</div>
+          <div class="lgame-jackpot">Draw: Every Saturday</div>
+        </div>
+        <div class="lgame">
+          <div class="lgame-name">Keno</div>
+          <div class="lgame-desc">Fast draws, all day every day</div>
+          <div class="lgame-jackpot">Draws: Every 3 minutes</div>
+        </div>
+        <div class="lgame">
+          <div class="lgame-name">Scratch Tickets</div>
+          <div class="lgame-desc">Instant wins from $1 upwards</div>
+          <div class="lgame-jackpot">Win instantly in-store</div>
+        </div>
+        <div class="lgame">
+          <div class="lgame-name">Set for Life</div>
+          <div class="lgame-desc">Monthly income for 20 years</div>
+          <div class="lgame-jackpot">Draw: Every Monday</div>
+        </div>
+      </div>
+    </div>
+    <div class="lottery-right">
+      <div class="big-lotto-display">
+        <div class="lotto-machine-art">
+          <div class="lotto-center-text">
+            <div class="big-num">7</div>
+            <p>Lucky Number</p>
+          </div>
+        </div>
+        <div class="lotto-balls-row">
+          <div class="lball2">7</div>
+          <div class="lball2">14</div>
+          <div class="lball2">22</div>
+          <div class="lball2">36</div>
+          <div class="lball2">40</div>
+          <div class="lball2 r">3</div>
+        </div>
+        <div class="lotto-auth-badge">✓ Official QLD Lottery Retailer</div>
+        <p style="font-family:'Libre Baskerville',serif;font-style:italic;font-size:14px;color:rgba(255,255,255,.35);text-align:center;max-width:260px;line-height:1.6;">Please play responsibly. Gambling help: 1800 858 858</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OCCASIONS ═══ -->
+<section class="occasions" id="occasions">
+  <div class="occasions-header reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Something Special</div>
+    <h2>There's Something for<br><em>Every Occasion</em></h2>
+    <p>Take a little Nextra™ time to see what extra you can find — the perfect card, gift or treat is always waiting.</p>
+  </div>
+
+  <div class="occ-grid">
+    <div class="occ-card reveal">
+      <div class="occ-visual"><div class="occ-icon-big">🎂</div></div>
+      <div class="occ-body"><h3>Birthdays</h3><p>Cards, banners, gifts &amp; wrap for every age</p></div>
+    </div>
+    <div class="occ-card reveal reveal-d1">
+      <div class="occ-visual"><div class="occ-icon-big">💍</div></div>
+      <div class="occ-body"><h3>Weddings</h3><p>Engagement to honeymoon — cards &amp; gifts</p></div>
+    </div>
+    <div class="occ-card reveal reveal-d2">
+      <div class="occ-visual"><div class="occ-icon-big">🎄</div></div>
+      <div class="occ-body"><h3>Christmas</h3><p>Cards, wrap, tags &amp; festive gifts</p></div>
+    </div>
+    <div class="occ-card reveal reveal-d3">
+      <div class="occ-visual"><div class="occ-icon-big">👶</div></div>
+      <div class="occ-body"><h3>New Baby</h3><p>Cards, toys &amp; keepsakes for newborns</p></div>
+    </div>
+    <div class="occ-card reveal reveal-d1">
+      <div class="occ-visual"><div class="occ-icon-big">🎒</div></div>
+      <div class="occ-body"><h3>Back to School</h3><p>All stationery &amp; supplies for every grade</p></div>
+    </div>
+    <div class="occ-card reveal reveal-d2">
+      <div class="occ-visual"><div class="occ-icon-big">🌹</div></div>
+      <div class="occ-body"><h3>Valentine's Day</h3><p>Cards &amp; gifts for someone special</p></div>
+    </div>
+    <div class="occ-card reveal reveal-d3">
+      <div class="occ-visual"><div class="occ-icon-big">🎓</div></div>
+      <div class="occ-body"><h3>Graduation</h3><p>Celebrate every academic milestone</p></div>
+    </div>
+    <div class="occ-card reveal reveal-d4">
+      <div class="occ-visual"><div class="occ-icon-big">🌺</div></div>
+      <div class="occ-body"><h3>Mother's Day</h3><p>Cards &amp; gifts to honour mum</p></div>
+    </div>
+  </div>
+
+  <div class="occ-extra-strip" style="margin-top:20px;">
+    <div class="occ-extra">
+      <div class="icon">🐣</div>
+      <h4>Easter</h4>
+      <p>Cards &amp; seasonal gifts</p>
+    </div>
+    <div class="occ-extra">
+      <div class="icon">👔</div>
+      <h4>Father's Day</h4>
+      <p>For every kind of dad</p>
+    </div>
+    <div class="occ-extra">
+      <div class="icon">🎆</div>
+      <h4>New Year</h4>
+      <p>Diaries, cards &amp; gifts</p>
+    </div>
+    <div class="occ-extra">
+      <div class="icon">🤗</div>
+      <h4>Just Because</h4>
+      <p>No occasion needed</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY NEXTRA ═══ -->
+<section class="why-nextra">
+  <div class="why-header reveal">
+    <div class="section-eyebrow">Why Albany Creek Chooses Us</div>
+    <h2>The <em>Nextra</em> Difference</h2>
+    <p>We're not just a shop. We're part of the fabric of Albany Creek — a destination that locals genuinely love and rely on every single day.</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-num">01</div>
+      <div class="why-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <h3>Truly Local, Proudly Community</h3>
+      <p>We are your neighbours. Our team knows Albany Creek, knows our customers, and takes genuine pride in serving the community. This isn't a faceless national chain — it's a local business that cares.</p>
+      <span class="why-tag">Your neighbourhood newsagency →</span>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <div class="why-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+      </div>
+      <h3>Open Before Anyone Else</h3>
+      <p>5:30am weekdays. 6am weekends. No other local retailer is ready for you this early. Whether you're commuting, exercising or just an early riser — we're open and we're ready.</p>
+      <span class="why-tag">Early birds welcome →</span>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+      </div>
+      <h3>Friendly, Expert Staff</h3>
+      <p>Our team genuinely knows the store and loves helping customers. Looking for a magazine you can't find? A card for an unusual occasion? A specific stationery item? Just ask — we'll find it.</p>
+      <span class="why-tag">Service you can count on →</span>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <div class="why-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/></svg>
+      </div>
+      <h3>Unmatched Product Range</h3>
+      <p>Over 2,000 product lines carefully selected for the Albany Creek community. We carry the full Nextra™ range plus locally curated selections — you won't find this depth anywhere else locally.</p>
+      <span class="why-tag">2,000+ products in-store →</span>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+      </div>
+      <h3>Official Lottery Agent</h3>
+      <p>We are an officially authorised Queensland lottery retailer. Every major lottery game, Keno, and instant scratch tickets — all managed securely and professionally in-store.</p>
+      <span class="why-tag">Authorised QLD agent →</span>
+    </div>
+    <div class="why-card reveal reveal-d3">
+      <div class="why-icon-box">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+      </div>
+      <h3>Trusted Nextra™ Network</h3>
+      <p>As part of the national Nextra™ brand, we bring you the buying power, consistency and standards of Australia's most trusted newsagency network — with the heart of a local business.</p>
+      <span class="why-tag">National brand, local soul →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MAGAZINES & PRESS SECTION ═══ -->
+<section class="press-section" id="press">
+  <div class="press-header">
+    <div>
+      <div class="section-eyebrow">Magazines &amp; Publications</div>
+      <h2>Your <em>Reading</em><br>Destination</h2>
+    </div>
+    <div class="press-header-right">
+      <p>We stock hundreds of magazine and newspaper titles across every genre and interest. Our publication wall is one of the most extensive in the region — refreshed weekly with the latest editions.</p>
+    </div>
+  </div>
+  <div class="press-grid">
+    <div class="press-card">
+      <div class="press-cover">
+        <div class="press-cover-inner">
+          <div class="mag-title">NEWS &amp;<br>CURRENT AFFAIRS</div>
+          <div class="mag-sub">Australian &amp; International</div>
+          <div class="mag-edition">Weekly Titles</div>
+        </div>
+      </div>
+      <div class="press-meta">
+        <h4>News &amp; Current Affairs</h4>
+        <p>The Australian, Herald Sun, Courier Mail, The Guardian, Time, The Economist &amp; more</p>
+      </div>
+    </div>
+    <div class="press-card">
+      <div class="press-cover">
+        <div class="press-cover-inner">
+          <div class="mag-title">FOOD &amp;<br>LIFESTYLE</div>
+          <div class="mag-sub">Cooking to Entertaining</div>
+          <div class="mag-edition">Monthly Editions</div>
+        </div>
+      </div>
+      <div class="press-meta">
+        <h4>Food &amp; Lifestyle</h4>
+        <p>Delicious, Australian Women's Weekly, MasterChef Magazine, Donna Hay &amp; more</p>
+      </div>
+    </div>
+    <div class="press-card">
+      <div class="press-cover">
+        <div class="press-cover-inner">
+          <div class="mag-title">SPORT &amp;<br>OUTDOOR</div>
+          <div class="mag-sub">Every Sporting Interest</div>
+          <div class="mag-edition">All Codes &amp; Sports</div>
+        </div>
+      </div>
+      <div class="press-meta">
+        <h4>Sport &amp; Outdoors</h4>
+        <p>Rugby, AFL, cricket, fishing, cycling, motorsport, golf &amp; outdoor lifestyle titles</p>
+      </div>
+    </div>
+    <div class="press-card">
+      <div class="press-cover">
+        <div class="press-cover-inner">
+          <div class="mag-title">HOME &amp;<br>GARDEN</div>
+          <div class="mag-sub">Design to DIY</div>
+          <div class="mag-edition">Interiors &amp; Living</div>
+        </div>
+      </div>
+      <div class="press-meta">
+        <h4>Home &amp; Garden</h4>
+        <p>Vogue Living, Belle, Australian House &amp; Garden, Homes+, Better Homes &amp; more</p>
+      </div>
+    </div>
+    <div class="press-card">
+      <div class="press-cover">
+        <div class="press-cover-inner">
+          <div class="mag-title">FASHION &amp;<br>BEAUTY</div>
+          <div class="mag-sub">Style &amp; Trends</div>
+          <div class="mag-edition">Monthly Issues</div>
+        </div>
+      </div>
+      <div class="press-meta">
+        <h4>Fashion &amp; Beauty</h4>
+        <p>Vogue Australia, Harper's Bazaar, Elle, Cosmopolitan, InStyle &amp; all major titles</p>
+      </div>
+    </div>
+    <div class="press-card">
+      <div class="press-cover">
+        <div class="press-cover-inner">
+          <div class="mag-title">HEALTH &amp;<br>FITNESS</div>
+          <div class="mag-sub">Wellbeing to Training</div>
+          <div class="mag-edition">All Fitness Levels</div>
+        </div>
+      </div>
+      <div class="press-meta">
+        <h4>Health &amp; Fitness</h4>
+        <p>Women's Health, Men's Health, Runner's World, Yoga Journal &amp; wellness titles</p>
+      </div>
+    </div>
+    <div class="press-card">
+      <div class="press-cover">
+        <div class="press-cover-inner">
+          <div class="mag-title">HOBBIES &amp;<br>INTERESTS</div>
+          <div class="mag-sub">Every Passion Covered</div>
+          <div class="mag-edition">Niche &amp; Specialist</div>
+        </div>
+      </div>
+      <div class="press-meta">
+        <h4>Hobbies &amp; Special Interest</h4>
+        <p>Photography, knitting, woodwork, model making, gaming, miniatures &amp; more</p>
+      </div>
+    </div>
+    <div class="press-card">
+      <div class="press-cover">
+        <div class="press-cover-inner">
+          <div class="mag-title">KIDS &amp;<br>FAMILY</div>
+          <div class="mag-sub">For Every Age</div>
+          <div class="mag-edition">Children's Titles</div>
+        </div>
+      </div>
+      <div class="press-meta">
+        <h4>Kids &amp; Family</h4>
+        <p>Disney publications, activity magazines, educational kids titles, parenting mags &amp; more</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="testimonials">
+  <div class="test-header reveal">
+    <div class="section-eyebrow" style="justify-content:center;">Community Voices</div>
+    <h2>What Albany Creek<br><em>Locals</em> Say</h2>
+    <p>Don't take our word for it — hear from the community we serve every day.</p>
+  </div>
+  <div class="test-grid">
+    <div class="tcard reveal">
+      <div class="tcard-quote">"</div>
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-body">I've been coming here every single morning for years. The team knows my order before I even reach the counter. Best local newsagency in Brisbane's north — no question.</div>
+      <div class="tcard-author">
+        <div class="tcard-av">S</div>
+        <div>
+          <div class="tcard-name">Sarah M.</div>
+          <div class="tcard-tag">Albany Creek resident, 8+ years</div>
+        </div>
+      </div>
+    </div>
+    <div class="tcard reveal reveal-d1">
+      <div class="tcard-quote">"</div>
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-body">Every birthday, Christmas, Mother's Day — every occasion — I come here first. They have such a gorgeous selection of cards and gifts. I always find something perfect without going anywhere else.</div>
+      <div class="tcard-author">
+        <div class="tcard-av">J</div>
+        <div>
+          <div class="tcard-name">James T.</div>
+          <div class="tcard-tag">Regular customer, 5 years</div>
+        </div>
+      </div>
+    </div>
+    <div class="tcard reveal reveal-d2">
+      <div class="tcard-quote">"</div>
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-body">The lottery section is so easy to use and the staff always help when I have questions. I also love their stationery — my kids' entire back-to-school list gets ticked off in one trip. Brilliant store.</div>
+      <div class="tcard-author">
+        <div class="tcard-av">L</div>
+        <div>
+          <div class="tcard-name">Linda K.</div>
+          <div class="tcard-tag">Local mum, daily visitor</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VISIT CTA ═══ -->
+<div class="visit-cta" id="visitcta">
+  <div class="visit-cta-text">
+    <div class="section-eyebrow" style="color:rgba(12,27,51,.6);">We're Open Right Now</div>
+    <h2>Come In &amp; Discover<br>Your World in a Shop</h2>
+    <p>Take a little Nextra™ time to see what extra you can find. We're open early, every day, for every need — big and small.</p>
+  </div>
+  <div class="visit-cta-actions">
+    <a href="#visit" class="btn-navy">Get Directions</a>
+    <div class="visit-cta-hours">
+      Mon–Fri: <strong>5:30am – 6:30pm</strong> &nbsp;|&nbsp; Weekends: <strong>6:00am – 6:00pm</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ INFO STRIP ═══ -->
+<div class="info-strip">
+  <div class="is-item">
+    <div class="is-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+    </div>
+    <div class="is-text">
+      <h3>Find Us in Albany Creek</h3>
+      <p>Albany Creek Shopping Centre<br><strong>Albany Creek, QLD 4035</strong><br>Free parking right outside</p>
+    </div>
+  </div>
+  <div class="is-item">
+    <div class="is-icon">
+      <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/></svg>
+    </div>
+    <div class="is-text">
+      <h3>Open 7 Days a Week</h3>
+      <p>Mon–Fri: <strong>5:30am – 6:30pm</strong><br>Saturday: <strong>6:00am – 6:00pm</strong><br>Sunday: <strong>6:00am – 6:00pm</strong></p>
+    </div>
+  </div>
+  <div class="is-item">
+    <div class="is-icon">
+      <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+    </div>
+    <div class="is-text">
+      <h3>Proudly Nextra™</h3>
+      <p>Part of the <strong>Nextra™ national network</strong> — Australia's most trusted newsagency brand, with the warmth of a local shop.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="fb-logo">Nextra<sup>™</sup></div>
+      <div class="fb-tagline">Albany Creek Newsagency</div>
+      <div class="fb-gold-rule"></div>
+      <p>Your premier local newsagency destination in Albany Creek, Queensland. Magazines, newspapers, stationery, giftware, greeting cards, lottery and so much more — open 7 days, from early morning.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Our Range</h4>
+      <ul>
+        <li><a href="#">Magazines &amp; Newspapers</a></li>
+        <li><a href="#">Stationery &amp; Art</a></li>
+        <li><a href="#">Greeting Cards</a></li>
+        <li><a href="#">Giftware</a></li>
+        <li><a href="#">Toys &amp; Games</a></li>
+        <li><a href="#">Gift Wrap &amp; Ribbon</a></li>
+        <li><a href="#">Books &amp; Puzzles</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Lottery &amp; Lotto</a></li>
+        <li><a href="#">Keno</a></li>
+        <li><a href="#">Scratch Tickets</a></li>
+        <li><a href="#">Bill Payments</a></li>
+        <li><a href="#">Phone Recharge</a></li>
+        <li><a href="#">Magazine Subscriptions</a></li>
+        <li><a href="#">Paper Delivery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Visit Us</h4>
+      <ul>
+        <li><a href="#">Our Location</a></li>
+        <li><a href="#">Opening Hours</a></li>
+        <li><a href="#">Get Directions</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">About Nextra™</a></li>
+        <li><a href="#">About Our Store</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Nextra Albany Creek Newsagency · Albany Creek, QLD 4035 · Open 7 Days</p>
+    <div class="nextra-stamp">
+      <span>Member of</span>
+      <div class="stamp">Nextra™</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Intersection Observer for scroll reveals
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+reveals.forEach(el => io.observe(el));
+
+// Nav scroll behaviour
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 60
+    ? '0 4px 40px rgba(12,27,51,.14)'
+    : '0 2px 24px rgba(12,27,51,.08)';
+});
+</script>
+</body>
+</html>
